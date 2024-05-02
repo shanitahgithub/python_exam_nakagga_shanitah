@@ -1,0 +1,7 @@
+_pycache__/config.cpython-312.pyc
+app/models/__pycache__/
+__pycache__/
+venv/
+app/__pycache__/
+app/controllers/__pycache__/
+migrations/__pycache__/
