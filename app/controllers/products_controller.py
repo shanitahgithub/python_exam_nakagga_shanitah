@@ -4,6 +4,7 @@ from app.extensions import db
 
 
 product = Blueprint('product', __name__, url_prefix='/api/v1/product')
+# Creating a new product
 @product.route('/create', methods=['POST'])
 def create_product():
     try:
@@ -55,7 +56,7 @@ def create_product():
         db.session.rollback()
         return jsonify({"error": str(e)}), 500
   
-  
+# Retrieving all products in the store
 @product.route('/allProducts', methods=["GET"])
 def get_all_products():
     try:
@@ -85,9 +86,9 @@ def get_all_products():
     except Exception as e:
         return jsonify({'error': str(e)}), 500
    
- 
-@product.route('/delete/<int:id>', methods=["DELETE"])
 
+# Deleting a product from the store
+@product.route('/delete/<int:id>', methods=["DELETE"])
 def delete_product(id):
     try:
         
