@@ -22,7 +22,7 @@ def create_product():
             return jsonify({"error": 'Product price is required'}), 400
 
         if not description:
-            return jsonify({"error": 'Company description is required'}), 400
+            return jsonify({"error": 'Product description is required'}), 400
         
         if Product.query.filter_by(name=name).first():
             return jsonify({"error":'Product already exists'})
@@ -42,7 +42,7 @@ def create_product():
         db.session.commit()
 
         # Building a response message
-        message = f" {new_product.name}  has been  has been successfully created"
+        message = f" {new_product.name}    has been successfully created"
         return jsonify({"message": message,
                      'product':{
                          'product_id':new_product.id,
