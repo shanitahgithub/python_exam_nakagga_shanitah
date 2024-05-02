@@ -22,7 +22,11 @@ def create_product():
             return jsonify({"error": 'Product price is required'}), 400
 
         if not description:
-            return jsonify({"error": 'Product description is required'}), 400
+            return jsonify({"error": 'Product description is required'}), 
+        
+        if not quantity:
+            return jsonify({"error": 'Product quantity is required'}), 400
+
         
         if Product.query.filter_by(name=name).first():
             return jsonify({"error":'Product already exists'})
